@@ -1,4 +1,82 @@
-<p>Search Flights</p>
+<h5 class="text-md-center m-5">Search for Flights</h5>
+
+
+<!--This div will be the main wrapper for the form - all stylings for this is done with grid bootstrap-->
+<div class="m-5 d-grid gap-3">
+  <div class="row">
+    <div class="col">
+      <div class="form-floating">
+        <input placeholder="From" class="form-control" />
+        <label class="text-primary form-label">From</label>
+      </div>
+
+    </div>
+    <div class="col">
+      <div class="form-floating">
+        <input placeholder="Destination" class="form-control" />
+        <label class="text-primary form-label">Destination</label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-floating">
+        <input type="date" placeholder="From Date" class="form-control" />
+        <label class="text-primary form-label">From Date</label>
+      </div>
+
+    </div>
+    <div class="col">
+      <div class="form-floating">
+        <input type="date" placeholder="To Date" class="form-control" />
+        <label class="text-primary form-label">To Date</label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-end">
+      <label class="form-label text-primary mt-2">
+        Number of Passengers
+      </label>
+
+    </div>
+    <div class="col">
+      <div class="input-group">
+        <div class="input-group-text">For</div>
+        <div class="form-control" type="number" placeholder="1"></div>
+        <div class="input-group-text">Passengers</div>
+
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--Here is a div with a for loop this will use the searchResult from the component.ts file to show the info-->
 <div *ngFor="let flight of searchResult">
