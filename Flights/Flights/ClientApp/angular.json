@@ -31,7 +31,8 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
             "scripts": []
           },
@@ -39,9 +40,9 @@
             "production": {
               "budgets": [
                 {
-                  "type": "initial",
+                  "maximumError": "2mb",
                   "maximumWarning": "1mb",
-                  "maximumError": "2mb"
+                  "type": "initial"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -132,5 +133,8 @@
       }
     }
   },
-  "defaultProject": "Flights"
+  "defaultProject": "Flights",
+  "cli": {
+    "analytics": "f5b6b8fa-58cd-45f6-8096-9b6474aa617c"
+  }
 }
