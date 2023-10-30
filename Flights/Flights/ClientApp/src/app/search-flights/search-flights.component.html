@@ -1,0 +1,8 @@
+<p>Search Flights</p>
+
+<!--Here is a div with a for loop this will use the searchResult from the component.ts file to show the info-->
+<div *ngFor="let flight of searchResult">
+  <!--Inside the div use double curly braces to bind data - call data from the for loop-->
+  {{ flight }}
+
+</div>
