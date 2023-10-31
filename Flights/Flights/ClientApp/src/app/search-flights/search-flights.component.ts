@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-search-flights',
