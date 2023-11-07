@@ -141,7 +141,6 @@ namespace Flights.Controllers
 
             flight.Bookings.Add(
                 new Booking(
-                    dto.FlightId,
                     dto.PassengerEmail,
                     dto.NumberOfSeats
                     ));
