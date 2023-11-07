@@ -23,6 +23,7 @@ export class RegisterPassengerComponent implements OnInit {
 
   register() {
     console.log("Form Values:", this.form.value);
-    this.passengerService.registerPassenger();
+    this.passengerService.registerPassenger({ body: this.form.value })
+    .subscribe(_=> console.log("Form posted to server"))
   }
 }
