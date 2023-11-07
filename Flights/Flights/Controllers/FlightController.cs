@@ -1,5 +1,6 @@
 ﻿using Flights.ReadModels;
 using Microsoft.AspNetCore.Mvc;
+using Flights.Dtos;
 
 namespace Flights.Controllers
 {
@@ -13,6 +14,9 @@ namespace Flights.Controllers
 
      
         static private FlightRm[] flights = new FlightRm[]
+
+        
+
             {
         new (   Guid.NewGuid(),
                 "American Airlines",
@@ -63,6 +67,9 @@ namespace Flights.Controllers
                 new TimePlaceRm("Zagreb",DateTime.Now.AddHours(random.Next(4, 60))),
                     random.Next(1, 853))
             };
+
+        static private IList<BookDto> Bookings = new List<BookDto>();
+
         public FlightController(ILogger<FlightController> logger)
         {
             _logger = logger;
@@ -89,6 +96,14 @@ namespace Flights.Controllers
 
             return Ok(flight);
 
+        }
+
+        [HttpPost]
+
+        public void Book(BookDto dto)
+        {
+            System.Diagnostics.Debug.WriteLine($"Booking a new flight {dto.FlightId}");
+            Bookings.Add(dto);
         }
     }
 }
