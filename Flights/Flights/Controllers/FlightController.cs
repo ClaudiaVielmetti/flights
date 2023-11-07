@@ -81,7 +81,18 @@ namespace Flights.Controllers
         [ProducesResponseType(500)]
         [ProducesResponseType(typeof(IEnumerable<FlightRm>), 200)]
         public IEnumerable<FlightRm> Search()
-        => flights;
+        {
+            var flightRmList = flights.Select(flight => new FlightRm(
+               flight.Id,
+               flight.Airline,
+               flight.Price,
+               new TimePlaceRm(flight.Departure.Place.ToString(), flight.Departure.Time),
+               new TimePlaceRm(flight.Arrival.Place.ToString(), flight.Arrival.Time),
+               flight.RemainingNumberOfSeats
+               )).ToArray();
+
+            return flightRmList;
+        }
 
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpGet("{id}")]
