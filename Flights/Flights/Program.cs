@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Add Db context
 builder.Services.AddDbContext<Entities>(options =>
-options.UseInMemoryDatabase(databaseName: "Flights"), ServiceLifetime.Singleton);
+options.UseSqlServer(), ServiceLifetime.Singleton);
 
 // Add services to the container.
 
