@@ -38,9 +38,11 @@ entities.Database.EnsureCreated();
 
 var random = new Random();
 
-Flight[] flightsToSeed = new Flight[]
+if(!entities.Flights.Any())
 {
-         
+    Flight[] flightsToSeed = new Flight[]
+{
+
         new (   Guid.NewGuid(),
                 "American Airlines",
                 random.Next(90, 5000).ToString(),
@@ -90,9 +92,10 @@ Flight[] flightsToSeed = new Flight[]
                 new TimePlace("Zagreb",DateTime.Now.AddHours(random.Next(4, 60))),
                     random.Next(1, 853))
 };
-entities.Flights.AddRange(flightsToSeed);
+    entities.Flights.AddRange(flightsToSeed);
 
-entities.SaveChanges();
+    entities.SaveChanges();
+}
 
 app.UseCors(builder => builder
 .WithOrigins("*")
