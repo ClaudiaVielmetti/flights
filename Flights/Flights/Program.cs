@@ -1,4 +1,6 @@
 using Microsoft.OpenApi.Models;
+using Flights.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,6 +15,8 @@ builder.Services.AddSwaggerGen(c =>
     });
     c.CustomOperationIds(e => $"{e.ActionDescriptor.RouteValues["action"] + e.ActionDescriptor.RouteValues["controller"]}");
 });
+
+builder.Services.AddSingleton<Entities>();
 
 var app = builder.Build();
 app.UseCors(builder => builder
