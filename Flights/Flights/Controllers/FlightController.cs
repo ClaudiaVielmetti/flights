@@ -13,9 +13,7 @@ namespace Flights.Controllers
     {
         private readonly ILogger<FlightController> _logger;
 
-        static Random random = new Random();
-
-     
+        static private readonly Entities Entities = new Entities();
 
         public FlightController(ILogger<FlightController> logger)
         {
