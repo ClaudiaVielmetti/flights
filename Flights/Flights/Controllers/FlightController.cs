@@ -27,8 +27,10 @@ namespace Flights.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         [ProducesResponseType(typeof(IEnumerable<FlightRm>), 200)]
-        public IEnumerable<FlightRm> Search(FlightSearchParameters @params)
+        public IEnumerable<FlightRm> Search([FromQuery] FlightSearchParameters @params)
         {
+            _logger.LogInformation("Searching for a flight for:{Destination}", @params.Destination);
+
             var flightRmList = _entities.Flights.Select(flight => new FlightRm(
                flight.Id,
                flight.Airline,
