@@ -20,6 +20,9 @@ namespace Flights.Data
         {
             modelBuilder.Entity<Passenger>().HasKey(p => p.Email);
 
+            //Concurrency token - in this case: to make sure there is no double booking
+            modelBuilder.Entity<Flight>().Property(p => p.RemainingNumberOfSeats).IsConcurrencyToken();
+
             //Adding Arrival and Departure to Db table
             modelBuilder.Entity<Flight>().OwnsOne(f => f.Departure);
             modelBuilder.Entity<Flight>().OwnsOne(f => f.Arrival);
