@@ -14,6 +14,8 @@ namespace Flights.Domain.Entities
         public IList<Booking> Bookings = new List<Booking>();
 
 
+        public Flight() { }
+
         public Flight(
         Guid id,
         string airline,
