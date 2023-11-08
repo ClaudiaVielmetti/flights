@@ -7,7 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Add Db context
 builder.Services.AddDbContext<Entities>(options =>
-options.UseSqlServer(), ServiceLifetime.Singleton);
+    options.UseSqlServer(
+        "Data Source=localhost,44467;" +
+        "Database=Flights;" +
+        "User id=SA;" +
+        "Password=1234!Secret;"
+    ));
 
 // Add services to the container.
 
@@ -27,6 +32,9 @@ builder.Services.AddSingleton<Entities>();
 var app = builder.Build();
 
 var entities = app.Services.CreateScope().ServiceProvider.GetService<Entities>();
+
+entities.Database.EnsureCreated();
+
 var random = new Random();
 
 Flight[] flightsToSeed = new Flight[]
